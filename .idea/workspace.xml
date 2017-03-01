@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a353d945-a99f-4efd-865b-9fb5247b48fd" name="Default" comment="" />
+    <list default="true" id="a353d945-a99f-4efd-865b-9fb5247b48fd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Creature$Builder.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Creature.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Entity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Player$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Player$PlayerBuilder.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/Logic/Player.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Display/Game.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Display/Window.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/Bullet.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/EnemyShip$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/EnemyShip$Builder.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/EnemyShip.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/GraphicObject.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/Handler.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/ID.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/KeyInput.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/Graphics/SpaceShip.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/States/GameState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/States/MenuState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Shooter Game/UI/States/State.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/gameOver.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/SpaceInvaders.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shooter Game.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Logic/Creature.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Logic/Entity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Logic/Player.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Display/Game.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Display/Window.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/Bullet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/EnemyShip.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/GraphicObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/Handler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/ID.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/KeyInput.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/Graphics/SpaceShip.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/States/GameState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/States/MenuState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/States/State.java" />
+    </list>
     <ignored path="Shooter Game.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,7 +70,7 @@
       <file leaf-file-name="GameState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/States/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="428">
               <caret line="99" column="66" selection-start-line="99" selection-start-column="66" selection-end-line="99" selection-end-column="66" />
               <folding />
             </state>
@@ -617,7 +663,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -999,7 +1045,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/States/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="428">
           <caret line="99" column="66" selection-start-line="99" selection-start-column="66" selection-end-line="99" selection-end-column="66" />
           <folding />
         </state>
