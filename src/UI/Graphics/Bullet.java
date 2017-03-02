@@ -2,6 +2,7 @@ package UI.Graphics;
 
 import Logic.Creature;
 import Logic.Player;
+import UI.Display.Game;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -23,12 +24,11 @@ public class Bullet extends GraphicObject{
     @Override
     public void tick() {
         if(!crashed){
-            this.x += xSpeed;
             this.y += ySpeed;
             launchTimer++;
         }
         //in case it didn't crashed and stepped out of the window
-        if(launchTimer == 10000)
+        if(this.y == Game.HEIGHT || this.y == 0)
             this.crashed = true;
     }
 

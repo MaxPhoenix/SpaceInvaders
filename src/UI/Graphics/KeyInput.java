@@ -9,28 +9,24 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter{
 
     private Handler handler;
-    private Handler bulletHandler;
     private int launchCounter = 0;
 
-    public KeyInput(Handler handler, Handler auxHandler){
+    public KeyInput(Handler handler){
         this.handler = handler;
-        this.bulletHandler = auxHandler;
     }
 
     public void keyPressed(KeyEvent e){
         int asciiCode = e.getKeyCode();
 
-        for(GraphicObject object : handler.getObjects()){
+        for(int i = 0 ; i < handler.getObjectList().size(); i++){
+            GraphicObject object = handler.getObjectList().get(i);
             if(object.getId() == ID.Player){
                 if( asciiCode == KeyEvent.VK_A) object.getEntity().setxSpeed(-5);
                 if( asciiCode == KeyEvent.VK_D) object.getEntity().setxSpeed(5);
                 if( asciiCode == KeyEvent.VK_O) {
                     launchCounter++;
                     if(launchCounter % 2 == 0){
-                        Bullet misil = new Bullet(object.x,object.y, 10, 10, ID.PlayerProyectile);
-                        bulletHandler.addObject( misil );
-                        misil.setLaunched(true);
-                        misil.setySpeed(-4);
+                        ((SpaceShip) object).shoot(handler);
                     }
                 }
             }
@@ -40,14 +36,15 @@ public class KeyInput extends KeyAdapter{
     public void keyReleased(KeyEvent e){
         int asciiCode = e.getKeyCode();
 
-        for(GraphicObject object : handler.getObjects()){
+        for(GraphicObject object : handler.getObjectList()){
             if(object.getId() == ID.Player){
                 if( asciiCode == KeyEvent.VK_A) object.getEntity().setxSpeed(0);
                 if( asciiCode == KeyEvent.VK_D) object.getEntity().setxSpeed(0);
-            }
+                if( asciiCode == KeyEvent.VK_O) {
 
+                }
+            }
         }
     }
-
 
 }

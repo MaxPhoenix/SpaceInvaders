@@ -10,6 +10,7 @@ import java.awt.*;
  */
 public class SpaceShip extends GraphicObject {
 
+
     public SpaceShip(int x, int y, int width, int height, ID id) {
         super(x, y, width, height, id);
         this.entity = new Player.PlayerBuilder(x, y).maxHealth(200).maxArmor(200).build();
@@ -27,8 +28,13 @@ public class SpaceShip extends GraphicObject {
     @Override
     public void render(Graphics g) {
         g.setColor( new Color(0xff0000) );
-        g.fillRect(x, y, 50, 50);
+        g.fillRect(x, y, width, height);
     }
 
-
+    public void shoot(Handler handler){
+        Bullet misil = new Bullet(this.x, this.y, 10, 10, ID.PlayerProyectile);
+        handler.addObject(misil);
+        misil.setLaunched(true);
+        misil.setySpeed(- 3);
+    }
 }

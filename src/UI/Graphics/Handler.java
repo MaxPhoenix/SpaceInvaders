@@ -11,26 +11,23 @@ public class Handler {
     private ArrayList<GraphicObject> objects = new ArrayList<GraphicObject>();
 
     public void tick(){
-        for(GraphicObject object : objects){
-            object.tick();
+        for(int i = 0; i < getObjectList().size() ; i++){
+            getObjectList().get(i).tick();
         }
     }
 
     public void render(Graphics g){
-        for(GraphicObject object : objects){
-            object.render(g);
+        for(int i = 0; i < getObjectList().size() ; i++){
+            getObjectList().get(i).render(g);
         }
     }
 
-    public void addObject(GraphicObject object){
-        this.objects.add(object);
-    }
+    public void addObject(GraphicObject object){this.objects.add(object);}
 
-    public void removeObject(GraphicObject object){
-        this.objects.remove(object);
-    }
+    public void removeObject(GraphicObject object){this.objects.remove(object);}
 
-    public ArrayList<GraphicObject> getObjects(){
+    public ArrayList<GraphicObject> getObjectList(){
         return this.objects;
     }
+
 }

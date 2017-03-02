@@ -2,7 +2,11 @@ package UI.Graphics;
 
 import Logic.Creature;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Max on 2/3/2017.
@@ -10,6 +14,7 @@ import java.awt.*;
 public class EnemyShip extends GraphicObject {
 
     private int leftBound, rightBound;
+    private BufferedImage healthy, damaged, busted;
 
     public static class Builder{
 
@@ -57,6 +62,13 @@ public class EnemyShip extends GraphicObject {
         this.leftBound = builder.leftBound;
         this.rightBound = builder.rightBound;
         this.entity = new Creature.Builder(x, y).maxHealth(100).build();
+        try {
+            this.healthy = ImageIO.read(new File("res\\textures\\healthShip.png"));
+            this.damaged = ImageIO.read(new File("res\\textures\\midShip.png"));
+            this.busted = ImageIO.read(new File("res\\textures\\damageShip.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         getEntity().setxSpeed(1);
     }
 
@@ -76,14 +88,21 @@ public class EnemyShip extends GraphicObject {
         int over70 = (int) (maxHealth/1.5);
         int arround50 = (int) (maxHealth/2.5);
         if( currentHealth >= over70 )
-            g.setColor( new Color(0x00ff00));
+            g.drawImage(healthy, x ,y, width, height,null);
         else if(currentHealth < over70 && currentHealth >= arround50)
-            g.setColor( new Color(0x0000ff));
+            g.drawImage(damaged, x, y, width, height,null);
         else if(currentHealth < arround50 && currentHealth > 0)
-            g.setColor( new Color(0xff0000));
+            g.drawImage(busted, x, y, width, height,null);
         else return;
-        g.fillRect(x, y, width, height);
 
+
+    }
+
+    public void shoot(Handler handler){
+        Bullet misil = new Bullet(this.x, this.y, 10, 10, ID.EnemyProjectile);
+        handler.addObject(misil);
+        misil.setLaunched(true);
+        misil.setySpeed(4);
     }
 
     public int getWidth() {
