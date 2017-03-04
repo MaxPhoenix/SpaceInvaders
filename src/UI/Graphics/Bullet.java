@@ -65,7 +65,7 @@ public class Bullet extends GraphicObject{
      */
     public boolean hitPlayer(SpaceShip player){
         if(intersectsWith(player)){
-            ( (Player)player.getEntity() ).modifyHealthBy(-2);
+            ( (Player)player.getEntity() ).modifyHealthBy(-5);
             return true;
         }
         return false;

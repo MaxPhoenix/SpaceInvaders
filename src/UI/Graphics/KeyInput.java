@@ -36,7 +36,8 @@ public class KeyInput extends KeyAdapter{
     public void keyReleased(KeyEvent e){
         int asciiCode = e.getKeyCode();
 
-        for(GraphicObject object : handler.getObjectList()){
+        for(int i = 0 ; i < handler.getObjectList().size(); i++){
+            GraphicObject object = handler.getObjectList().get(i);
             if(object.getId() == ID.Player){
                 if( asciiCode == KeyEvent.VK_A) object.getEntity().setxSpeed(0);
                 if( asciiCode == KeyEvent.VK_D) object.getEntity().setxSpeed(0);

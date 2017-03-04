@@ -1,7 +1,7 @@
 package UI.Display;
 
-import UI.States.GameState;
-import UI.States.State;
+import Logic.Player;
+import UI.States.*;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -21,6 +21,8 @@ public class Game extends Canvas implements Runnable{
 
     //States
     private State gameState;
+    private State gameOverState;
+    private State menuState;
 
     //in- game timing
     private static long tickCounter;
@@ -28,13 +30,21 @@ public class Game extends Canvas implements Runnable{
     public Game(){
         new Window(WIDTH, HEIGHT, "Space invaders",this);
         this.gameState = new GameState(this);
-        State.setCurrentState(gameState);
+        this.gameOverState = new GameOverState(this);
+        this.menuState = new MenuState(this);
+        StateHandler.setCurrentState(gameState);
 
     }
 
     private void tick(){
-        if(State.getCurrentState() != null)
-            State.getCurrentState().tick();
+        if(StateHandler.getCurrentState() != null)
+            StateHandler.getCurrentState().tick();
+        //TODO refractor these lines of code
+        if(StateHandler.getCurrentState() instanceof GameState){
+            if(((GameState) StateHandler.getCurrentState()).playerShip().getEntity() instanceof Player)
+                if(((Player) ((GameState) StateHandler.getCurrentState()).playerShip().getEntity()).getHealth() <= 0)
+                    StateHandler.setCurrentState(gameOverState);
+        }
         return;
     }
 
@@ -52,8 +62,8 @@ public class Game extends Canvas implements Runnable{
         //Draw here!
         gameGraphics.setColor( new Color(0x000000) );
         gameGraphics.fillRect(0, 0, WIDTH, HEIGHT);
-        if(State.getCurrentState() != null)
-            State.getCurrentState().render(gameGraphics);
+        if(StateHandler.getCurrentState() != null)
+            StateHandler.getCurrentState().render(gameGraphics);
 
         //Drawing finished!
         gameGraphics.dispose();

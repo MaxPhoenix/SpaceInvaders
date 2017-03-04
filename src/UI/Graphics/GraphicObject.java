@@ -3,6 +3,8 @@ package UI.Graphics;
 import Logic.Entity;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * Created by Max on 2/3/2017.
@@ -13,6 +15,7 @@ public abstract class GraphicObject {
     protected ID id;
     protected Entity entity;
     protected int width, height;
+    protected ArrayList<BufferedImage> renderImages;
 
     public GraphicObject(int x, int y, int width, int height,ID id){
         this.x = x;
@@ -20,6 +23,7 @@ public abstract class GraphicObject {
         this.id = id;
         this.width = width;
         this.height = height;
+        this.renderImages = new ArrayList<BufferedImage>();
     }
 
     public boolean intersectsWith(GraphicObject obj){
@@ -62,7 +66,6 @@ public abstract class GraphicObject {
     public void setId(ID id) {
         this.id = id;
     }
-
 
     public Entity getEntity(){ return this.entity; }
 }

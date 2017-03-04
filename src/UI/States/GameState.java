@@ -5,7 +5,11 @@ import Logic.Player;
 import UI.Display.Game;
 import UI.Graphics.*;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,10 +30,17 @@ public class GameState extends State {
     private ArrayList <EnemyShip> enemyShips = new ArrayList<EnemyShip>();
     private Random number = new Random(0);
     private long launchTick = 0;
-
+    private BufferedImage backGround;
+    private static int score;
 
     public GameState(Game game) {
         super(game);
+
+        try {
+            backGround = ImageIO.read(new File("res\\textures\\spaceWar.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         width = game.WIDTH;
         height = game.HEIGHT;
@@ -84,12 +95,16 @@ public class GameState extends State {
                     if (((Bullet) bullet).hitPlayer(playerShip) || ((Bullet) bullet).isCrashed()){
                         ((Bullet) bullet).setCrashed(true);
                         objectsHandler.removeObject(bullet);
+                        if(((Bullet) bullet).hitPlayer(playerShip))
+                            playerShip.increaseScoreBy(-30);
                     }
                 }
                 if(bullet.getId() == ID.PlayerProyectile) {
                     if (((Bullet) bullet).crashed(enemyShips) || ((Bullet) bullet).isCrashed()) {
                         ((Bullet) bullet).setCrashed(true);
                         objectsHandler.removeObject(bullet);
+                        if( ((Bullet) bullet).crashed(enemyShips) )
+                            playerShip.increaseScoreBy(50);
                     }
                 }
             }
@@ -108,6 +123,7 @@ public class GameState extends State {
 
     @Override
     public void render(Graphics g) {
+        g.drawImage(backGround, 0, 0, width, height, null);
         int playerMaxHealth = ( (Player) playerShip.getEntity() ).getMaxHealth() *2;
         int playerHealth = ( (Player) playerShip.getEntity() ).getHealth() *2;
         int barXPosition =  width/20;
@@ -119,5 +135,16 @@ public class GameState extends State {
         g.setColor(Color.green);
         g.fillRect(barXPosition, barYPosition,playerHealth, 40);
         objectsHandler.render(g);
+        g.setColor(Color.RED);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+        String score = "Player score: "+ playerShip.getScore();
+        g.drawString(score, (int) (width/1.5), height/12);
+    }
+
+    public SpaceShip playerShip(){
+        return this.playerShip;
+    }
+    public static int getScore(){
+        return score;
     }
 }

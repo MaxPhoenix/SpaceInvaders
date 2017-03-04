@@ -62,6 +62,7 @@ public class EnemyShip extends GraphicObject {
         this.leftBound = builder.leftBound;
         this.rightBound = builder.rightBound;
         this.entity = new Creature.Builder(x, y).maxHealth(100).build();
+
         try {
             this.healthy = ImageIO.read(new File("res\\textures\\healthShip.png"));
             this.damaged = ImageIO.read(new File("res\\textures\\midShip.png"));
