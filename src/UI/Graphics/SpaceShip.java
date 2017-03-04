@@ -19,7 +19,7 @@ public class SpaceShip extends GraphicObject {
 
     public SpaceShip(int x, int y, int width, int height, ID id) {
         super(x, y, width, height, id);
-        this.entity = new Player.PlayerBuilder(x, y).maxHealth(10).maxArmor(200).build();
+        this.entity = new Player.PlayerBuilder(x, y).maxHealth(200).maxArmor(200).build();
 
         try {
             this.shipImage = ImageIO.read(new File("res\\textures\\playerShip.png"));
